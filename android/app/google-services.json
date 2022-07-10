@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "442055285102",
-    "project_id": "signin-example-e0591",
-    "storage_bucket": "signin-example-e0591.appspot.com"
+    "project_number": "334091654819",
+    "project_id": "mesegeapp",
+    "storage_bucket": "mesegeapp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:442055285102:android:3b6ffedd91ae6dc6cf897f",
+        "mobilesdk_app_id": "1:334091654819:android:ec0049fbce80d1182c1116",
         "android_client_info": {
-          "package_name": "com.example.newapp"
+          "package_name": "com.example.mesageapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "442055285102-iontv5e9ju52adjqabfcv3pngl1timbp.apps.googleusercontent.com",
+          "client_id": "334091654819-hitohud8r9e868nvvrfohihcvnntkrso.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mesageapp",
+            "certificate_hash": "493da0bd0bd3d2dad4a8b9f1b97b5c7aff501961"
+          }
+        },
+        {
+          "client_id": "334091654819-4ksaueg7nln3mj6dojson1jtbg0ju36k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAQP01T6RSnw6EppIXR1IjtSWgVpFuVXi4"
+          "current_key": "AIzaSyDdHEkUNn1xO6pQKPXQHOQN2J3Rpn519Vw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "442055285102-iontv5e9ju52adjqabfcv3pngl1timbp.apps.googleusercontent.com",
+              "client_id": "334091654819-4ksaueg7nln3mj6dojson1jtbg0ju36k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
