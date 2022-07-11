@@ -46,10 +46,7 @@ void onSendMessage()async{
 
     return Scaffold(
       
-appBar: AppBar(title: Text(document!['name']),
-backgroundColor: Colors.black,
 
-),
 body: SingleChildScrollView(
   
   child: Column(

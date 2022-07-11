@@ -3,7 +3,6 @@ import 'package:newapp/methods.dart';
 import 'package:newapp/reusable_widgets/reusable_widget.dart';
 import 'package:newapp/screens/signup_screen.dart';
 import 'package:newapp/screens/home_screen.dart';
-import 'package:newapp/screens/userprint.dart';
 
 
 

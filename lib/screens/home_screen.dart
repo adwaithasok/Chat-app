@@ -118,7 +118,7 @@ String chatRoomId(String user1,String user2){
                              padding: const EdgeInsets.all(0.0),
                              child: IconButton(onPressed: () {
                                Navigator.push(context,
-              MaterialPageRoute(builder: (_) => groupChat()));
+              MaterialPageRoute(builder: (_) => const groupChat()));
          
         },
        icon: Icon(Icons.groups_rounded,color: Colors.black,)),

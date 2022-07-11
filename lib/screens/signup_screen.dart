@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:newapp/methods.dart';
 import 'package:newapp/reusable_widgets/reusable_widget.dart';
 import 'package:newapp/screens/home_screen.dart';
-import 'package:newapp/screens/userprint.dart';
 
 
 

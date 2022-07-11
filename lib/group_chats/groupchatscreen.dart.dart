@@ -31,10 +31,7 @@ class groupchatroom extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(document['name']),
-        backgroundColor: Colors.black,
-      ),
+      
       body: SingleChildScrollView(
           child: Column(
         children: [
