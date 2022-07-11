@@ -40,7 +40,7 @@ class _groupChatState extends State<groupChat> {
     final uid = user!.uid;
 
     FirebaseFirestore.instance.collection("users").doc(uid).get()
-      ..then((value) {
+      .then((value) {
         setState(() {
           userdata = value.data();
         });
@@ -75,7 +75,7 @@ class _groupChatState extends State<groupChat> {
           StreamBuilder<QuerySnapshot>(
               stream: FirebaseFirestore.instance
                   .collection("groupChat")
-                  .where("participants", arrayContains: userdata!['name'])
+                  .where("participants", arrayContains: userdata?['name'])
                   .snapshots(),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
