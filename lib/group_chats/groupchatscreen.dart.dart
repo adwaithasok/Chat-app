@@ -31,61 +31,62 @@ class groupchatroom extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      
       body: SingleChildScrollView(
+          reverse: true,
           child: Column(
-        children: [
-          Container(
-              height: size.height / 1.25,
-              width: size.width,
-              child: StreamBuilder<QuerySnapshot>(
-                  stream: document.reference
-                      .collection("chats")
-                      .orderBy("time", descending: false)
-                      .snapshots(),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.data != null) {
-                      return ListView.builder(
-                          itemCount: snapshot.data?.docs.length,
-                          itemBuilder: (context, index) {
-                            Map<String, dynamic> map =
-                                snapshot.data!.docs[index].data()
-                                    as Map<String, dynamic>;
+            children: [
+              Container(
+                  height: size.height / 1.25,
+                  width: size.width,
+                  child: StreamBuilder<QuerySnapshot>(
+                      stream: document.reference
+                          .collection("chats")
+                          .orderBy("time", descending: false)
+                          .snapshots(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (snapshot.data != null) {
+                          return ListView.builder(
+                              itemCount: snapshot.data?.docs.length,
+                              itemBuilder: (context, index) {
+                                Map<String, dynamic> map =
+                                    snapshot.data!.docs[index].data()
+                                        as Map<String, dynamic>;
 
-                            return messages(size, map);
-                          });
-                    } else {
-                      return Container();
-                    }
-                  })),
-          Container(
-            height: size.height / 10,
-            width: size.width,
-            alignment: Alignment.center,
-            child: Container(
-                height: size.height / 12,
-                width: size.width / 1.1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: size.height / 17,
-                      width: size.width / 1.4,
-                      child: TextField(
-                          controller: _message,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
-                            borderRadius: BorderRadius.circular(8),
-                          ))),
-                    ),
-                    IconButton(onPressed: onSendMessage, icon: Icon(Icons.send))
-                  ],
-                )),
-          ),
-        ],
-      )),
+                                return messages(size, map);
+                              });
+                        } else {
+                          return Container();
+                        }
+                      })),
+              Container(
+                height: size.height / 6,
+                width: size.width,
+                alignment: Alignment.center,
+                child: Container(
+                    height: size.height / 10,
+                    width: size.width / 1.1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: size.height / 15,
+                          width: size.width / 1.3,
+                          child: TextField(
+                              controller: _message,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black),
+                                borderRadius: BorderRadius.circular(8),
+                              ))),
+                        ),
+                        IconButton(
+                            onPressed: onSendMessage, icon: Icon(Icons.send))
+                      ],
+                    )),
+              ),
+            ],
+          )),
     );
   }
 
@@ -96,19 +97,45 @@ class groupchatroom extends StatelessWidget {
           ? Alignment.bottomRight
           : Alignment.bottomLeft,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 13, horizontal: 20),
+        padding: EdgeInsets.only(left: 10,right: 20,top: 5,bottom: 10),
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(15.0),
+            bottomLeft: Radius.circular(15.0),
+                        bottomRight: Radius.circular(15.0),
+
+          ),
           color: Colors.blue,
         ),
-        child: Text(
-          map['message'],
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              map['sendby'],
+              style: const TextStyle(
+                fontSize: 8,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left:15.0),
+              child: Text(
+                map['message'],
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+             
+           
+            
+
+          ],
         ),
       ),
     );
